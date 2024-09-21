@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Calculadora</h1>
-        <form id="calculadora">
+        <form id="calculadora" method="POST" action="calculadora.php">
             <label for="numero1">Número 1:</label>
             <input type="number" id="numero1" name="numero1" required>
 
@@ -17,17 +17,15 @@
             <input type="number" id="numero2" name="numero2" required>
 
             <div class="buttons">
-                <button type="button" onclick="realizarOperacion('sumar')">Sumar</button>
-                <button type="button" onclick="realizarOperacion('restar')">Restar</button>
-                <button type="button" onclick="realizarOperacion('multiplicar')">Multiplicar</button>
-                <button type="button" onclick="realizarOperacion('dividir')">Dividir</button>
+                <button type="submit" name="operacion" value="sumar">Sumar</button>
+                <button type="submit" name="operacion" value="restar">Restar</button>
+                <button type="submit" name="operacion" value="multiplicar">Multiplicar</button>
+                <button type="submit" name="operacion" value="dividir">Dividir</button>
             </div>
 
             <label for="resultado">Resultado:</label>
-            <input type="text" id="resultado" name="resultado" readonly>
+            <input type="text" id="resultado" name="resultado" readonly value="<?php echo isset($_GET['resultado']) ? $_GET['resultado'] : ''; ?>">
         </form>
     </div>
-
-    <script src="calculadora.php"></script>
 </body>
 </html>

@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultado = 'Operación no válida';
     }
 
-    // Devolver el resultado como respuesta en formato JSON
-    echo json_encode(['resultado' => $resultado]);
+    // Redirigir de vuelta a index.html con el resultado
+    header("Location: index.html?resultado=" . urlencode($resultado));
+    exit;
 }
 ?>
