@@ -16,6 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         case 'restar':
             $resultado = $numero1 - $numero2;
             break;
+        case 'multiplicar':
+            $resultado = $numero1 * $numero2;
+            break;
+        case 'dividir':
+            // Verificar si el divisor es cero
+            if ($numero2 != 0) {
+                $resultado = $numero1 / $numero2;
+            } else {
+                $resultado = 'Error: División por cero';
+            }
+            break;
         default:
             $resultado = 'Operación no válida';
     }
